@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>COD API Attempt</title>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="card logo">
+                <h1>COD API Attempt</h1>
+            </div>
+            <div class="card">
+                <p class="bold">API PRINT TEST</p>
+                <div class="apiData"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $.getScript('js/api-request.js', function() {
+        var request = new apiRequest('leaderboards', {
+            title: 'wwii',
+            platform: 'psn',
+            type: 'core',
+            time: 'monthly',
+            mode: 'war',
+            el: '.apiData',
+            username: 'Yoxir-36'
+        }).init()
+    })
+
+</script>
+
+</html>

@@ -1,0 +1,71 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: #263446;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #F9FAFB;
+  font-size: 14px;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Misc */
+
+a {
+  text-decoration: none;
+  color: rgba(144, 156, 172, 0.63);
+  transition: .2s all;
+
+}
+a:hover {
+  color: #F9FAFB;
+}
+
+/* Container */
+
+.container {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  margin: 3rem auto 0;
+  justify-content: space-between;
+}
+.card {
+  background: #334050;
+  padding: 1.5rem 1.5rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(50, 50, 93, 0.1);
+  margin-bottom: 1.5rem;
+}
+.card.logo {
+  background: transparent;
+  position: relative;
+  text-align: center;
+}
+.card.logo img {
+  max-width: 205px;
+  position: absolute;
+  top: -38px;
+  right: -67px;
+}
+.card h4,.card h3, .single__outer h2, .table > .head > div {
+  margin: 0;
+  padding: 0 0 .2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.card h3 {
+  margin: 0 0 1rem;
+}
+p.bold { font-weight: bold; padding-right: 100px;}
+/* Main Content */
+.container .content {
+  position: relative;
+  width: 100%;
+}
+.spacer {height: 10px;}
