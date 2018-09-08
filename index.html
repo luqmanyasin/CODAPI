@@ -24,8 +24,9 @@
     </div>
 </body>
 <script>
+    var request
     $.getScript('js/api-request.js', function() {
-        var request = new apiRequest('leaderboards', {
+        request = new apiRequest('leaderboard', {
             title: 'wwii',
             platform: 'psn',
             type: 'core',
