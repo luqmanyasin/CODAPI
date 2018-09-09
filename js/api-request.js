@@ -1,64 +1,58 @@
-var apiRequest = function (requestType, config) {
+export default class apiRequest {
 
-    var klass = {
-        API_ENDPOINT: 'https://my.callofduty.com/api/papi-client',
-        title: config.title,
-        platform: config.platform,
-        type: config.type,
-        time: config.time,
-        mode: config.mode,
-        el: config.el,
-        requestType: requestType,
-
-        init: function () {
-            this.setEndpoint()
-            this.runApi(this.insertData)
-        },
-
-        setEndpoint: function () {
-            this.requestType
-            switch (this.requestType) {
-                case "leaderboard":
-                    this.setLeaderboards(config.username)
-                    break
-            }
-        },
-
-        setLeaderboards: function (username) {
-            return this.API_ENDPOINT =
-                this.API_ENDPOINT +
-                '/leaderboards/v2' +
-                ("/title/" + this.title) +
-                ("/platform/" + this.platform) +
-                ("/time/" + this.time) +
-                ("/type/" + this.type) +
-                ("/mode/" + this.mode) +
-                ("/gamer/" + username)
-        },
-
-        runApi: function (callback) {
-            var API_ENDPOINT = this.API_ENDPOINT
-
-            $.getJSON(API_ENDPOINT, function (data) {
-                return callback(data, this.el)
-            }.bind(this));
-        },
-
-        insertData: function (data, el) {
-            data = data.data
-            el = $(el)
-
-            $(data.entries).each(function () {
-                var string = $("<p></p>");
-                string.append('#' + this.rank + ' - ')
-                string.append(this.username + ' - ')
-                string.append(this.values.totalXp + ' - ')
-                el.append(string)
-
-            })
+    constructor (config) {
+        if (new.target === apiRequest) {
+            throw new TypeError("Cannot construct Abstract instances directly");
         }
+
+        this.API_ENDPOINT = 'https://my.callofduty.com/api/papi-client'
+        this.title = config.title
+        this.platform = config.platform
+        this.type = config.type
+        this.time = config.time
+        this.mode = config.mode
+        this.el = document.querySelector(config.el)
+        this.config = config
+
     }
 
 
-    return klass;
+    setEndpoint () {
+    }
+
+
+    getData (callback) {
+        var API_ENDPOINT = this.API_ENDPOINT
+        var requestData
+        var req = new XMLHttpRequest()
+
+        req.open('GET', API_ENDPOINT, true)
+
+        req.onload = function() {
+            if (req.status >= 200 && req.status < 400) {
+                requestData = JSON.parse(req.responseText)
+            } else {
+                requestData = false
+            }
+            return callback(requestData, this.el)
+        }.bind(this)
+
+        req.send()
+    }
+
+    appendData (data, el) {
+        data = data.data
+        data.entries.forEach(function(item) {
+            var p = document.createElement('p');
+            var string = document.createTextNode(
+                '#' + item.rank +
+                ' - ' + item.username +
+                ' - ' + item.values.totalXp
+            )
+            p.appendChild(string)
+            el.appendChild(p)
+
+        });
+    }
+
 }

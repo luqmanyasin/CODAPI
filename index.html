@@ -6,8 +6,6 @@
     <title>COD API Attempt</title>
 
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -23,20 +21,6 @@
         </div>
     </div>
 </body>
-<script>
-    var request
-    $.getScript('js/api-request.js', function() {
-        request = new apiRequest('leaderboard', {
-            title: 'wwii',
-            platform: 'psn',
-            type: 'core',
-            time: 'monthly',
-            mode: 'war',
-            el: '.apiData',
-            username: 'Yoxir-36'
-        }).init()
-    })
-
-</script>
+<script type="module" src="index.js"></script>
 
 </html>
