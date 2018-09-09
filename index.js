@@ -6,7 +6,7 @@ request = new leaderboardRequest({
     platform: 'psn',
     type: 'core',
     time: 'monthly',
-    mode: 'war',
+    mode: 'career',
     el: '.apiData',
-    username: 'Yoxir-36'
+    username: 'zXNsK_SaNcHoXz'
 })
