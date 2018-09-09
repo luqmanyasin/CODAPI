@@ -14,6 +14,8 @@ export default class apiRequest {
         this.el = document.querySelector(config.el)
         this.config = config
 
+        this.setEndpoint()
+        this.getData(this.appendData)
     }
 
 

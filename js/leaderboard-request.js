@@ -3,8 +3,6 @@ export default class leaderboardRequest extends apiRequest {
     constructor(config) {
         super(config)
 
-        this.setEndpoint()
-        this.getData(this.appendData)
 
     }
 
