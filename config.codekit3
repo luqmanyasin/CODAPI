@@ -29,6 +29,17 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"\/img\/BO4-logo.png": {
+		"ft": 32768,
+		"iS": 18656,
+		"oA": 0,
+		"oAP": "\/img\/BO4-logo.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/index-min.js": {
 		"ft": 64,
 		"ma": 0,
